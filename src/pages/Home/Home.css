@@ -1,0 +1,18 @@
+#background-Img-main {
+  background-image: url("../../assets/images/floral-top-section.png");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: contain;
+}
+
+
+.gradientText{
+  background: linear-gradient(90.19deg, #F24397 0.17%, #F64C3B 105.5%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradientBackground{
+  background: linear-gradient(90.19deg, #F24397 0.17%, #F64C3B 105.5%);
+}
