@@ -83,7 +83,7 @@ const Home = () => {
           </p>
           <div>
             <div className="lg:flex">
-              <div className="md:w-[634.48px] h-[398.07px] bg-[#C4C4C4] bg-opacity-70 rounded-2xl lg:mr-10 xl:mr-[76.74px]">
+              <div className="md:w-[634.48px] h-[398.07px] bg-[#C4C4C4] bg-opacity-70 rounded-2xl lg:mr-10 xl:mr-[65px]">
                 <p className="pl-4 pt-4 font-light text-[18px] leading-[28px] text-[#000000]">
                   Introduction video
                 </p>
@@ -259,43 +259,6 @@ const Home = () => {
                   </p>
                 </div>
               ))}
-              {/* <div className="flex items-center mb-[52px] cursor-pointer">
-                <p className="w-[16px] h-[15.9px] bg-white rounded-full mr-[26px]"></p>
-                <p className="font-light text-[22.78px] leading-[27.34px] text-[#8C8C8C]">
-                  Ashrei Mitra
-                </p>
-              </div>
-              <div className="flex items-center mb-[52px] cursor-pointer">
-                <p className="relative bottom-[-40px] w-[16px] h-[15.9px] bg-white rounded-full mr-[26px]"></p>
-                <p className="w-[16px] h-[15.9px] bg-white rounded-full mr-[26px]"></p>
-                <p className="font-light text-[22.78px] leading-[27.34px] text-[#8C8C8C]">
-                  Rahul
-                </p>
-              </div>
-              <div className="flex items-center mb-[52px] cursor-pointer">
-                <p className="w-[16px] h-[15.9px] bg-[#F64C3B] rounded-full mr-[26px]"></p>
-                <p className="font-light text-[28.83px] leading-[34.6px] text-[#FE5266]">
-                  Ashrei Mitra
-                </p>
-              </div>
-              <div className="flex items-center mb-[52px] cursor-pointer">
-                <p className="w-[16px] h-[15.9px] bg-white rounded-full mr-[26px]"></p>
-                <p className="font-light text-[22.78px] leading-[27.34px] text-[#8C8C8C]">
-                  Ashray
-                </p>
-              </div>
-              <div className="flex items-center mb-[52px] cursor-pointer">
-                <p className="w-[16px] h-[15.9px] bg-white rounded-full mr-[26px]"></p>
-                <p className="font-light text-[22.78px] leading-[27.34px] text-[#8C8C8C]">
-                  Ashish
-                </p>
-              </div>
-              <div className="flex items-center cursor-pointer">
-                <p className="w-[16px] h-[15.9px] bg-white rounded-full mr-[26px]"></p>
-                <p className="font-light text-[22.78px] leading-[27.34px] text-[#8C8C8C]">
-                  Zora
-                </p>
-              </div> */}
             </div>
             <div className="relative md:grid grid-cols-3 items-center md:w-[739px] md:h-[423px] rounded-2xl bg-[#C4C4C4] bg-opacity-30 mx-auto lg:mx-0">
               <div>

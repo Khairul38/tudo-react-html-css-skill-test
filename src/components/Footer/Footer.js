@@ -7,7 +7,7 @@ const Footer = () => {
     <footer>
       <div className="bg-[#FFF3E9]">
         <div className="max-w-[1440px] mx-auto">
-          <div className="sm:h-[377px] mx-8 lg:mx-[155px] pt-[41px] pb-10 sm:pb-0">
+          <div className="sm:h-[377px] mx-8 xl:mx-[155px] pt-[41px] pb-10 sm:pb-0">
             <div className="md:flex justify-between mb-4">
               <h3 className="font-light text-[28.83px] leading-[35px] mb-3 md:mb-0">
                 Let's talk
