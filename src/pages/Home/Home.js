@@ -49,8 +49,6 @@ const Home = () => {
     index: 2,
   });
 
-  console.log(selectedTeacher);
-
   const handleClick = (teacher, index) => {
     setSelectedTeacher({ ...teacher, index });
   };
@@ -299,7 +297,7 @@ const Home = () => {
                 </p>
               </div> */}
             </div>
-            <div className="relative md:flex justify-between items-center md:w-[739px] md:h-[423px] rounded-2xl bg-[#C4C4C4] bg-opacity-30 mx-auto lg:mx-0">
+            <div className="relative md:grid grid-cols-3 items-center md:w-[739px] md:h-[423px] rounded-2xl bg-[#C4C4C4] bg-opacity-30 mx-auto lg:mx-0">
               <div>
                 <img
                   className="absolute top-[30px] left-[25px]"
@@ -316,7 +314,7 @@ const Home = () => {
                 </h1>
               </div>
               <div>
-                <p className="md:w-[465px] font-light text-4 leading-[25.04px] md:ml-[79px] text-[#4D4D4D] px-8 pb-8 mt-44 md:mt-0 md:pb-0 md:px-0">
+                <p className="md:w-[465px] font-light text-4 leading-[25.04px] text-[#4D4D4D] px-8 pb-8 mt-44 md:mt-0 md:pb-0 md:px-0">
                   {selectedTeacher.description}
                 </p>
               </div>
