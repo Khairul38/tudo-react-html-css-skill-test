@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Play from "../../assets/icons/play.png";
 import Slice from "../../assets/images/slice.png";
 import Ellipse from "../../assets/images/Ellipse-middle-section.png";
@@ -9,7 +9,69 @@ import Ashrei from "../../assets/images/Ashrei.png";
 import Rectangle from "../../assets/images/Rectangle.png";
 import "./Home.css";
 
+const teachers = [
+  {
+    id: 1,
+    name: "Ashrei Mitra",
+    description: "This is description",
+  },
+  {
+    id: 2,
+    name: "Rahul",
+    description: "This is description",
+  },
+  {
+    id: 3,
+    name: "Ashrei Mitra",
+    description:
+      "Ashrei Mitra started his journey in yoga at the age of 16. He was chosen by his master Dr. Bharat Thakur from a meditation workshop and has worked with him closely for many years to become one of the most senior teachers at Bharat Thakur Artistic Yoga. Combining his love of fitness, breathwork, functional training, and his deep knowledge of the human anatomy and yogic knowhow, he is committed to maximizing on the human potential by strengthening and opening up the body so that the mind naturally falls into a deep state of relaxation and meditation. He has taught yoga to people from all walks of life including athletes, celebrities and several top corporate organizations",
+  },
+  {
+    id: 4,
+    name: "Ashray",
+    description: "This is description",
+  },
+  {
+    id: 5,
+    name: "Ashish",
+    description: "This is description",
+  },
+  {
+    id: 6,
+    name: "Zora",
+    description: "This is description",
+  },
+];
+
 const Home = () => {
+  const [selectedTeacher, setSelectedTeacher] = useState({
+    ...teachers[2],
+    index: 2,
+  });
+
+  console.log(selectedTeacher);
+
+  const handleClick = (teacher, index) => {
+    setSelectedTeacher({ ...teacher, index });
+  };
+
+  const handlePrevious = () => {
+    if (selectedTeacher.index > 0) {
+      setSelectedTeacher({
+        ...teachers[selectedTeacher.index - 1],
+        index: selectedTeacher.index - 1,
+      });
+    }
+  };
+  const handleNext = () => {
+    if (selectedTeacher.index < 5) {
+      setSelectedTeacher({
+        ...teachers[selectedTeacher.index + 1],
+        index: selectedTeacher.index + 1,
+      });
+    }
+  };
+
   return (
     <div>
       {/* ----Yoga for Flat Ads section---- */}
@@ -174,33 +236,70 @@ const Home = () => {
             Our Teachers
           </h1>
           <div className="lg:flex justify-between">
-            <div className="mb-20 lg:mb-0">
-              <p className="font-light text-[22.78px] leading-[27.34px] text-[#8C8C8C] pl-[42px] mb-[52px]">
-                Ashrei Mitra
-              </p>
-              <div className="flex items-center mb-[52px]">
+            <div className="mb-20 lg:mb-0 space-y-[52px]">
+              {teachers.map((teacher, index) => (
+                <div
+                  key={teacher.id}
+                  onClick={() => handleClick(teacher, index)}
+                  className="flex items-center mb-[52px] cursor-pointer"
+                >
+                  <p
+                    className={`w-[16px] h-[15.9px] rounded-full mr-[26px] ${
+                      teacher.id === selectedTeacher.id
+                        ? "bg-[#F64C3B]"
+                        : "bg-white"
+                    }`}
+                  ></p>
+                  <p
+                    className={`font-light ${
+                      teacher.id === selectedTeacher.id
+                        ? "text-[28.83px] leading-[34.6px] text-[#FE5266]"
+                        : "text-[22.78px] leading-[27.34px] text-[#8C8C8C]"
+                    }`}
+                  >
+                    {teacher.name}
+                  </p>
+                </div>
+              ))}
+              {/* <div className="flex items-center mb-[52px] cursor-pointer">
+                <p className="w-[16px] h-[15.9px] bg-white rounded-full mr-[26px]"></p>
+                <p className="font-light text-[22.78px] leading-[27.34px] text-[#8C8C8C]">
+                  Ashrei Mitra
+                </p>
+              </div>
+              <div className="flex items-center mb-[52px] cursor-pointer">
                 <p className="relative bottom-[-40px] w-[16px] h-[15.9px] bg-white rounded-full mr-[26px]"></p>
+                <p className="w-[16px] h-[15.9px] bg-white rounded-full mr-[26px]"></p>
                 <p className="font-light text-[22.78px] leading-[27.34px] text-[#8C8C8C]">
                   Rahul
                 </p>
               </div>
-              <div className="flex items-center mb-[52px]">
+              <div className="flex items-center mb-[52px] cursor-pointer">
                 <p className="w-[16px] h-[15.9px] bg-[#F64C3B] rounded-full mr-[26px]"></p>
                 <p className="font-light text-[28.83px] leading-[34.6px] text-[#FE5266]">
                   Ashrei Mitra
                 </p>
               </div>
-              <p className="font-light text-[22.78px] leading-[27.34px] text-[#8C8C8C] pl-[42px] mb-[52px]">
-                Ashray
-              </p>
-              <p className="font-light text-[22.78px] leading-[27.34px] text-[#8C8C8C] pl-[42px] mb-[52px]">
-                Ashish
-              </p>
-              <p className="font-light text-[22.78px] leading-[27.34px] text-[#8C8C8C] pl-[42px]">
-                Zora
-              </p>
+              <div className="flex items-center mb-[52px] cursor-pointer">
+                <p className="w-[16px] h-[15.9px] bg-white rounded-full mr-[26px]"></p>
+                <p className="font-light text-[22.78px] leading-[27.34px] text-[#8C8C8C]">
+                  Ashray
+                </p>
+              </div>
+              <div className="flex items-center mb-[52px] cursor-pointer">
+                <p className="w-[16px] h-[15.9px] bg-white rounded-full mr-[26px]"></p>
+                <p className="font-light text-[22.78px] leading-[27.34px] text-[#8C8C8C]">
+                  Ashish
+                </p>
+              </div>
+              <div className="flex items-center cursor-pointer">
+                <p className="w-[16px] h-[15.9px] bg-white rounded-full mr-[26px]"></p>
+                <p className="font-light text-[22.78px] leading-[27.34px] text-[#8C8C8C]">
+                  Zora
+                </p>
+              </div> */}
             </div>
-            <div className="relative md:flex items-center md:w-[739px] md:h-[423px] rounded-2xl bg-[#C4C4C4] bg-opacity-30 mx-auto lg:mx-0">
+            <div className="relative md:flex justify-between items-center md:w-[739px] md:h-[423px] rounded-2xl bg-[#C4C4C4] bg-opacity-30 mx-auto lg:mx-0">
               <div>
                 <img
                   className="absolute top-[30px] left-[25px]"
@@ -213,23 +312,12 @@ const Home = () => {
                   alt=""
                 />
                 <h1 className="font-light text-[25.63px] leading-[30.76px] ml-[25px] mt-[16px]">
-                  Ashrei Mitra
+                  {selectedTeacher.name}
                 </h1>
               </div>
               <div>
                 <p className="md:w-[465px] font-light text-4 leading-[25.04px] md:ml-[79px] text-[#4D4D4D] px-8 pb-8 mt-44 md:mt-0 md:pb-0 md:px-0">
-                  Ashrei Mitra started his journey in yoga at the age of 16. He
-                  was chosen by his master Dr. Bharat Thakur from a meditation
-                  workshop and has worked with him closely for many years to
-                  become one of the most senior teachers at Bharat Thakur
-                  Artistic Yoga. Combining his love of fitness, breathwork,
-                  functional training, and his deep knowledge of the human
-                  anatomy and yogic knowhow, he is committed to maximizing on
-                  the human potential by strengthening and opening up the body
-                  so that the mind naturally falls into a deep state of
-                  relaxation and meditation. He has taught yoga to people from
-                  all walks of life including athletes, celebrities and several
-                  top corporate organizations
+                  {selectedTeacher.description}
                 </p>
               </div>
             </div>
@@ -237,8 +325,26 @@ const Home = () => {
 
           {/* Previous and Next button */}
           <div className="flex justify-end mt-[23px] space-x-[19.34px]">
-            <img className="m-[11px] cursor-pointer" src={Previous} alt="" />
-            <img className="m-[11px] cursor-pointer" src={Next} alt="" />
+            <img
+              onClick={handlePrevious}
+              className={`m-[11px] cursor-pointer ${
+                selectedTeacher.index === 0
+                  ? "cursor-not-allowed"
+                  : "cursor-pointer"
+              }`}
+              src={Previous}
+              alt=""
+            />
+            <img
+              onClick={handleNext}
+              className={`m-[11px] cursor-pointer ${
+                selectedTeacher.index === 5
+                  ? "cursor-not-allowed"
+                  : "cursor-pointer"
+              }`}
+              src={Next}
+              alt=""
+            />
           </div>
         </div>
       </div>
