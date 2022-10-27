@@ -1,13 +1,70 @@
 import React, { useEffect, useState } from "react";
 import Play from "../../assets/icons/play.png";
 import Slice from "../../assets/images/slice.png";
-import Ellipse from "../../assets/images/Ellipse-middle-section.png";
+import Ellipse from "../../assets/images/Ellipse-middle-section-1.png";
+import Ellipse27 from "../../assets/images/Ellipse-27.png";
+// import Ellipse20 from "../../assets/images/Ellipse-20.png";
+import Ellipse24 from "../../assets/images/Ellipse-24.png";
+import Ellipse25 from "../../assets/images/Ellipse-25.png";
+import Ellipse26 from "../../assets/images/Ellipse-26.png";
 import Previous from "../../assets/icons/Previous.png";
 import Next from "../../assets/icons/Next.png";
 import Polygon from "../../assets/icons/Polygon.png";
 import Ashrei from "../../assets/images/Ashrei.png";
 import Rectangle from "../../assets/images/Rectangle.png";
 import "./Home.css";
+
+const schedules = [
+  {
+    id: 1,
+    day: 1,
+    title: "Day 1 - Class",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  },
+  {
+    id: 2,
+    day: 2,
+    title: "Day 2 - Class",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  },
+  {
+    id: 3,
+    day: 3,
+    title: "Day 3 - Class",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  },
+  {
+    id: 4,
+    day: 4,
+    title: "Day 4 - Class",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  },
+  {
+    id: 5,
+    day: 5,
+    title: "Day 5 - Class",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  },
+  {
+    id: 6,
+    day: 6,
+    title: "Day 6 - Class",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  },
+  {
+    id: 7,
+    day: 7,
+    title: "Day 7 - Class",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  },
+];
 
 const teachers = [
   {
@@ -48,7 +105,37 @@ const Home = () => {
     ...teachers[2],
     index: 2,
   });
+  const [selectedSchedule, setSelectedSchedule] = useState({
+    ...schedules[0],
+    index: 0,
+  });
 
+  // Schedule section
+  const handleScheduleClick = (index) => {
+    setSelectedSchedule({
+      ...schedules[index],
+      index: index,
+    });
+  };
+
+  const handlePreviousSchedule = () => {
+    if (selectedSchedule.index > 0) {
+      setSelectedSchedule({
+        ...schedules[selectedSchedule.index - 1],
+        index: selectedSchedule.index - 1,
+      });
+    }
+  };
+  const handleNextSchedule = () => {
+    if (selectedSchedule.index < 6) {
+      setSelectedSchedule({
+        ...schedules[selectedSchedule.index + 1],
+        index: selectedSchedule.index + 1,
+      });
+    }
+  };
+
+  // Teacher section
   const handleClick = (teacher, index) => {
     setSelectedTeacher({ ...teacher, index });
   };
@@ -183,22 +270,127 @@ const Home = () => {
           </h1>
           <div className="lg:flex justify-between">
             <div className="flex justify-center items-center mb-10 lg:mb-0">
-              <img src={Ellipse} alt="" />
+              <div className="relative">
+                <img className="p-12 w-[424px]" src={Ellipse} alt="" />
+                <img
+                  className="absolute left-[0px] bottom-[0px] w-[370px]"
+                  src={Ellipse27}
+                  alt=""
+                />
+                {selectedSchedule.day !== 1 ? (
+                  <img
+                    onClick={() => handleScheduleClick(0)}
+                    className="absolute left-[-7px] bottom-[215px] cursor-pointer"
+                    src={Ellipse26}
+                    alt="1"
+                  />
+                ) : (
+                  <p className="absolute left-[-20px] bottom-[210px] gradientBackground w-[50px] h-[50px] rounded-full text-white flex items-center justify-center">
+                    {selectedSchedule.day}
+                  </p>
+                )}
+                {selectedSchedule.day !== 2 ? (
+                  <img
+                    onClick={() => handleScheduleClick(1)}
+                    className="absolute right-[402px] bottom-[135px] cursor-pointer"
+                    src={Ellipse24}
+                    alt="2"
+                  />
+                ) : (
+                  <p className="absolute right-[388px] bottom-[125px] gradientBackground w-[50px] h-[50px] rounded-full text-white flex items-center justify-center">
+                    {selectedSchedule.day}
+                  </p>
+                )}
+                {selectedSchedule.day !== 3 ? (
+                  <img
+                    onClick={() => handleScheduleClick(2)}
+                    className="absolute right-[365px] bottom-[70px] cursor-pointer"
+                    src={Ellipse25}
+                    alt="3"
+                  />
+                ) : (
+                  <p className="absolute right-[345px] bottom-[50px] gradientBackground w-[50px] h-[50px] rounded-full text-white flex items-center justify-center">
+                    {selectedSchedule.day}
+                  </p>
+                )}
+                {selectedSchedule.day !== 4 ? (
+                  <img
+                    onClick={() => handleScheduleClick(3)}
+                    className="absolute right-[300px] bottom-[17px] cursor-pointer"
+                    src={Ellipse26}
+                    alt="4"
+                  />
+                ) : (
+                  <p className="absolute right-[280px] bottom-[0px] gradientBackground w-[50px] h-[50px] rounded-full text-white flex items-center justify-center">
+                    {selectedSchedule.day}
+                  </p>
+                )}
+                {selectedSchedule.day !== 5 ? (
+                  <img
+                    onClick={() => handleScheduleClick(4)}
+                    className="absolute right-[209px] bottom-[-8px] cursor-pointer"
+                    src={Ellipse25}
+                    alt="5"
+                  />
+                ) : (
+                  <p className="absolute right-[195px] bottom-[-23px] gradientBackground w-[50px] h-[50px] rounded-full text-white flex items-center justify-center">
+                    {selectedSchedule.day}
+                  </p>
+                )}
+                {selectedSchedule.day !== 6 ? (
+                  <img
+                    onClick={() => handleScheduleClick(5)}
+                    className="absolute right-[115px] bottom-[10px] cursor-pointer"
+                    src={Ellipse24}
+                    alt="6"
+                  />
+                ) : (
+                  <p className="absolute right-[100px] bottom-[-10px] gradientBackground w-[50px] h-[50px] rounded-full text-white flex items-center justify-center">
+                    {selectedSchedule.day}
+                  </p>
+                )}
+                {selectedSchedule.day !== 7 ? (
+                  <img
+                    onClick={() => handleScheduleClick(6)}
+                    className="absolute right-[45px] bottom-[60px] cursor-pointer"
+                    src={Ellipse26}
+                    alt="7"
+                  />
+                ) : (
+                  <p className="absolute right-[30px] bottom-[40px] gradientBackground w-[50px] h-[50px] rounded-full text-white flex items-center justify-center">
+                    {selectedSchedule.day}
+                  </p>
+                )}
+              </div>
             </div>
             <div className="lg:min-w-[475.67px] lg:ml-12">
               <div className="flex justify-between items-center mb-[38.37px]">
                 <h1 className="font-light text-[32.44px] leading-[38.93px]">
-                  Day 1 - Class
+                  {selectedSchedule.title}
                 </h1>
 
                 {/* Previous and Next button */}
                 <div className="flex space-x-[19.34px]">
                   <img
-                    className="m-[11px] cursor-pointer"
+                    onClick={handlePreviousSchedule}
+                    className={`m-[11px]  ${
+                      selectedSchedule.index === 0
+                        ? "cursor-not-allowed"
+                        : "cursor-pointer"
+                    }`}
                     src={Previous}
                     alt=""
                   />
-                  <img className="m-[11px] cursor-pointer" src={Next} alt="" />
+                  <img
+                    onClick={handleNextSchedule}
+                    className={`m-[11px]  ${
+                      selectedSchedule.index === 6
+                        ? "cursor-not-allowed"
+                        : "cursor-pointer"
+                    }`}
+                    src={Next}
+                    alt=""
+                  />
                 </div>
               </div>
               <div className="lg:min-w-[475.67px] min-h-[283.12px] bg-[#C4C4C4]">
@@ -216,8 +408,7 @@ const Home = () => {
                 </div>
               </div>
               <p className="md:w-[421px] h-[84px] mt-[42.71px] mb-[11.35px] font-light text-lg leading-[28.17px]">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                {selectedSchedule.description}
               </p>
               <h1 className="font-light text-[22.78px] leading-[36.45px] gradientText cursor-pointer">
                 Join Today
